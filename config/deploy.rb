@@ -2,7 +2,7 @@ default_run_options[:pty] = true
 
 set :application, "huginn"
 set :deploy_to, "/home/you/app"
-set :user, "you"
+set :user, "deployer"
 set :use_sudo, false
 set :scm, :git
 set :rails_env, 'production'
@@ -14,7 +14,8 @@ set :keep_releases, 5
 set :bundle_without, [:development]
 set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 
-server "yourdomain.com", :app, :delayed_job, :web, :db, :primary => true
+server "173.255.244.162", :app, :delayed_job, :web, :db, :primary => true
+ssh_options[:forward_agent] = true
 
 set :delayed_job_server_role, :delayed_job
 
