@@ -1,8 +1,8 @@
 default_run_options[:pty] = true
 
 set :application, "huginn"
-set :deploy_to, "/home/you/app"
 set :user, "deployer"
+set :deploy_to, "/home/#{user}/apps/#{application}"
 set :use_sudo, false
 set :scm, :git
 set :rails_env, 'production'
