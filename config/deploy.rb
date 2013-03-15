@@ -15,7 +15,7 @@ set :bundle_without, [:development]
 set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 
 server "173.255.244.162", :app, :delayed_job, :web, :db, :primary => true
-ssh_options[:forward_agent] = true
+#ssh_options[:forward_agent] = true
 
 set :delayed_job_server_role, :delayed_job
 
