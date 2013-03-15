@@ -1,12 +1,12 @@
 default_run_options[:pty] = true
 
 set :application, "huginn"
-set :deploy_to, "/home/you/app"
-set :user, "you"
+set :deploy_to, "/home/deployer/apps/huginn"
+set :user, "deployer"
 set :use_sudo, false
 set :scm, :git
 set :rails_env, 'production'
-set :repository, "git@github.com:you/huginn-private.git"
+set :repository, "git@github.com:rswaminathan/huginn.git"
 set :branch, "master"
 set :deploy_via, :remote_cache
 set :keep_releases, 5
@@ -14,7 +14,7 @@ set :keep_releases, 5
 set :bundle_without, [:development]
 set :unicorn_pid, "#{shared_path}/pids/unicorn.pid"
 
-server "yourdomain.com", :app, :delayed_job, :web, :db, :primary => true
+server "173.255.244.162", :app, :delayed_job, :web, :db, :primary => true
 
 set :delayed_job_server_role, :delayed_job
 
