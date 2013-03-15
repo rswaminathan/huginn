@@ -28,5 +28,5 @@ production:
   database: huginn_production
   pool: 5
   username: root
-  password:
+  password: password
   socket: <%= ["/var/run/mysqld/mysqld.sock", "/opt/local/var/run/mysql5/mysqld.sock", "/tmp/mysql.sock"].find{ |path| File.exist? path } %>
