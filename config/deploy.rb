@@ -30,6 +30,15 @@ after "deploy:stop", "delayed_job:stop"
 after "deploy:start", "delayed_job:start"
 after "deploy:restart", "delayed_job:restart"
 
+namespace :deploy do
+  task :setup_config, roles: :app do
+    sudo "ln -nfs #{current_path}/config/nginx/production.conf /etc/nginx/sites-enabled/#{application}"
+    put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
+    puts "Now edit the config files in #{shared_path}."
+  end
+
+after "deploy:setup", "deploy:setup_config"
+end
 #
 # If you want to use command line options, for example to start multiple workers,
 # define a Capistrano variable delayed_job_args:
