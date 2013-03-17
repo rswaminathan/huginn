@@ -3,7 +3,7 @@ app_path = "/home/deployer/apps/huginn/current"
 worker_processes 2
 preload_app true
 timeout 180
-listen '/home/deployer/apps/huginn/shared/pids/unicorn.socket'
+listen '/tmp/unicorn.huginn.socket'
 
 working_directory app_path
 
